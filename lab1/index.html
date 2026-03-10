@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>114 Web Labs - 隨機抽籤器</title>
+    <style>
+        /* CSS：美化網頁介面 */
+        body {
+            font-family: "Microsoft JhengHei", sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        .container {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h2 { color: #333; }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box; /* 確保寬度包含 padding */
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result-display {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #fff3cd;
+            border: 2px dashed #ffeeba;
+            border-radius: 8px;
+            min-height: 50px;
+        }
+
+        .winner {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>114 Web Labs 抽籤器</h2>
+        <p>請在下方輸入名單（每行一個名字）：</p>
+        
+        <textarea id="nameList" placeholder="例如：&#10;小明&#10;小華&#10;小美"></textarea>
+        
+        <button onclick="drawWinner()">🎉 抽出幸運兒</button>
+
+        <div id="result-display">
+            <div id="resultText">準備好抽籤了嗎？</div>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript：處理抽籤邏輯
+        function drawWinner() {
+            // 1. 取得 textarea 的內容
+            const textarea = document.getElementById('nameList');
+            const resultText = document.getElementById('resultText');
+            
+            // 2. 將字串轉為陣列，依換行符號分割，並過濾掉空白行
+            const names = textarea.value.split('\n').map(name => name.trim()).filter(name => name !== "");
+
+            // 3. 檢查名單是否為空
+            if (names.length === 0) {
+                alert("請先輸入名單喔！");
+                return;
+            }
+
+            // 4. 隨機產生索引值 (Index)
+            // 公式：Math.floor(Math.random() * 陣列長度)
+            const randomIndex = Math.floor(Math.random() * names.length);
+            const winner = names[randomIndex];
+
+            // 5. 顯示結果
+            resultText.innerHTML = `抽中結果是：<br><span class="winner">${winner}</span>`;
+        }
+    </script>
+
+</body>
+</html>
