@@ -1,0 +1,95 @@
+/* style.css */
+
+/* 整體背景與字體設定 */
+body {
+    font-family: "Microsoft JhengHei", Arial, sans-serif;
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    color: #334e68;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 標題樣式 */
+h1 {
+    color: #102a43;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+h2 {
+    color: #243b53;
+    border-left: 5px solid #486581;
+    padding-left: 15px;
+    margin-top: 40px;
+    align-self: flex-start;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+/* 內容區塊容器 */
+ul, ol, .table-container {
+    background: #ffffff;
+    padding: 25px 50px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 600px;
+    box-sizing: border-box;
+    list-style-position: inside;
+}
+
+/* 表格樣式優化 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background: white;
+    overflow: hidden;
+}
+
+th {
+    background-color: #486581;
+    color: white;
+    padding: 15px;
+    font-weight: 500;
+}
+
+td {
+    padding: 12px;
+    text-align: center;
+    border-bottom: 1px solid #f0f4f8;
+}
+
+tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+tr:hover {
+    background-color: #e1e8ed;
+    transition: 0.2s;
+}
+
+/* 回首頁按鈕 */
+.back-link {
+    margin-top: 50px;
+    text-decoration: none;
+    color: white;
+    background-color: #486581;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.back-link:hover {
+    background-color: #243b53;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
